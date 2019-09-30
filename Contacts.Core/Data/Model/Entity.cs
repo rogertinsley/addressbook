@@ -1,7 +1,9 @@
-﻿namespace Contacts.Core.Data.Model
+﻿using System;
+
+namespace Contacts.Core.Data.Model
 {
     public class Entity
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

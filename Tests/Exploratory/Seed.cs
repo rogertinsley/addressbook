@@ -12,6 +12,10 @@ namespace Exploratory
 
             using (var context = new ContactContext())
             {
+                context.AddRange(contacts);
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+
                 context.SaveChanges();
             }
         }

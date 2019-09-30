@@ -29,3 +29,4 @@ az cosmosdb create \
 * https://docs.microsoft.com/en-us/azure/cosmos-db/modeling-data
 * https://docs.microsoft.com/en-us/ef/core/providers/cosmos/
 * https://azure.microsoft.com/en-us/resources/videos/azure-documentdb-elastic-scale-partitioning/
+* https://www.bruttin.com/CosmosDbExplorer/

@@ -7,16 +7,16 @@ namespace Contacts.Core.Data
     {
         public DbSet<Contact> Contacts { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultContainer("Contacts");
 
             modelBuilder.Entity<Contact>().ToContainer("Contacts");
             modelBuilder.Entity<Contact>().HasPartitionKey(c => c.CustomerId);
-
-            modelBuilder.Entity<Contact>().OwnsOne(c => c.Name);
-            modelBuilder.Entity<Contact>().OwnsOne(c => c.Address);
-            modelBuilder.Entity<Contact>().OwnsOne(c => c.ContactDetails);
         }
     }
 }
