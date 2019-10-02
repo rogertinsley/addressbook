@@ -10,7 +10,7 @@ namespace Exploratory
     {
         public Faker<Contact> Contacts { get; }
 
-        public string[] CustomerIds = { "10000", "20000", "30000", "40000", "50000" };
+        public string[] CustomerIds = { "10000", "20000", "30000", "40000", "50000", "60000" };
 
         public Fake()
         {

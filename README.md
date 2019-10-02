@@ -24,7 +24,18 @@ az cosmosdb create \
     --enable-multiple-write-locations true
 ```
 
-## Documents
+## Secrets
+
+1. Naviate to Exploratory.csproj
+2. Add secrets:
+
+```
+	dotnet user-secrets set CosmosSettings:AccountEndpoint AccountEndpoint                                         
+	dotnet user-secrets set CosmosSettings:AccountKey AccountKey
+	dotnet user-secrets set CosmosSettings:DatabaseName DatabaseName     
+```
+
+## Useful resources
 
 * https://docs.microsoft.com/en-us/azure/cosmos-db/modeling-data
 * https://docs.microsoft.com/en-us/ef/core/providers/cosmos/

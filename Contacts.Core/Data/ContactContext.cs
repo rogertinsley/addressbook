@@ -7,7 +7,8 @@ namespace Contacts.Core.Data
     {
         public DbSet<Contact> Contacts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ContactContext(DbContextOptions options)
+        : base(options)
         {
         }
 
