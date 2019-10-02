@@ -1,4 +1,4 @@
-﻿namespace Contacts.Core.Data.Model
+﻿namespace Contacts.Core.Data
 {
     public interface IRepository<T, TContext>
     {

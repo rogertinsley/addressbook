@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Contacts.Core.Data.Model;
+using Microsoft.EntityFrameworkCore;
 
-namespace Contacts.Core.Data.Model
+namespace Contacts.Core.Data
 {
     public class CosmosRepository<T, TContext> : IRepository<T, TContext> where T : class where TContext : DbContext
     {
