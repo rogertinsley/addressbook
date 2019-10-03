@@ -1,7 +1,13 @@
-﻿namespace Contacts.Core.Data
+﻿using System;
+using System.Linq;
+
+namespace Contacts.Core.Data
 {
-    public interface IRepository<T, TContext>
+    public interface IRepository<T, TContext> : IDisposable
     {
-        T Add(T entity);
+        void Add(T entity);
+        IQueryable<T> GetAsQueryable();
+        void EnsureCreated();
+        void EnsureDeleted();
     }
 }

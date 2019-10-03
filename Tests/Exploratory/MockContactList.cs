@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 using Bogus;
-using Contacts.Core.Data.Model.Contacts;
+using Contacts.Core.Model;
 
 namespace Exploratory
 {

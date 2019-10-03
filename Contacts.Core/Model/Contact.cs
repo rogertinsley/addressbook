@@ -1,4 +1,4 @@
-﻿namespace Contacts.Core.Data.Model.Contacts
+﻿namespace Contacts.Core.Model
 {
     public class Contact : Entity
     {

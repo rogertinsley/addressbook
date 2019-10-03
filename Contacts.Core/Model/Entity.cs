@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Contacts.Core.Data.Model
+namespace Contacts.Core.Model
 {
     public class Entity
     {
