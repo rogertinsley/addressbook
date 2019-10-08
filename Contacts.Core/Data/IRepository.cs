@@ -9,5 +9,6 @@ namespace Contacts.Core.Data
         IQueryable<T> GetAsQueryable();
         void EnsureCreated();
         void EnsureDeleted();
+        int Count();
     }
 }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Contacts.Core.Data;
 using Contacts.Core.Utilities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Core.Event.Contact
 {
@@ -15,7 +16,7 @@ namespace Contacts.Core.Event.Contact
             public int PageSize { get; set; }   = 20;
         }
 
-        public class Result
+        public class Result 
         {
             public PaginatedList<Model.Contact> Contacts { get; set; }
             public int PageNumber { get; set; }
@@ -23,16 +24,17 @@ namespace Contacts.Core.Event.Contact
 
         public class GetContactsQueryHandler : IRequestHandler<Query, Result>
         {
-            private readonly CosmosRepository<Model.Contact, ContactContext> _repository;
+            private readonly IRepository<Model.Contact, ContactContext> _repository;
 
-            public GetContactsQueryHandler(CosmosRepository<Model.Contact, ContactContext> cosmosRepository)
+            public GetContactsQueryHandler(IRepository<Model.Contact, ContactContext> repository)
             {
-                this._repository = cosmosRepository ?? throw new ArgumentNullException(nameof(cosmosRepository));
+                this._repository = repository ?? throw new ArgumentNullException(nameof(repository));
             }
 
             public async Task<Result> Handle(Query request, CancellationToken cancellationToken)
             {
                 var contacts = _repository.GetAsQueryable();
+                var d = _repository.Count();
                 var contactList = await PaginatedList<Model.Contact>.CreateAsync(
                     source: contacts, 
                     pageIndex:request.PageNumber ?? 1, 

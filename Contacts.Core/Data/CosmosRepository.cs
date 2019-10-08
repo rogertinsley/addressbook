@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Contacts.Core.Model;
+using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Core.Data
@@ -23,7 +24,7 @@ namespace Contacts.Core.Data
         {
             return Context.Set<T>().AsNoTracking();
         }
-
+        
         public void EnsureCreated()
         {
             Context.Database.EnsureCreated();
@@ -32,6 +33,13 @@ namespace Contacts.Core.Data
         public void EnsureDeleted()
         {
             Context.Database.EnsureDeleted();
+        }
+
+        public int Count()
+        {
+            // https://github.com/aspnet/EntityFrameworkCore/issues/16146
+            CosmosClient client = Context.Database.GetCosmosClient();
+            client.GetContainer();
         }
 
         public void Dispose()

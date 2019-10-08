@@ -1,10 +1,7 @@
 using System;
 using System.Linq;
-using Contacts.Core.Configuration;
 using Contacts.Core.Data;
 using Contacts.Core.Model;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Shouldly;
 using Xunit;
 
