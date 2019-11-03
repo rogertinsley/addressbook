@@ -5,7 +5,7 @@ using Contacts.Core.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Integration
+namespace Integration.CosmosDb
 {
     public class CosmosRepositoryFixture : IDisposable
     {
@@ -29,7 +29,7 @@ namespace Integration
                 .Options;
 
             context = new ContactContext(dbOption);
-            Repository = new CosmosRepository<Contact, ContactContext>(context);
+            Repository = new CosmosEntityRepository<Contact, ContactContext>(context);
         }
 
         public void Dispose()

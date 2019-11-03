@@ -30,7 +30,7 @@ namespace WebMvc
 
             services.AddMediatR(typeof(RegisterMediatr));
             services.AddControllersWithViews();
-            services.AddScoped(typeof(IRepository<,>), typeof(CosmosRepository<,>));
+            services.AddScoped(typeof(IRepository<,>), typeof(CosmosEntityRepository<,>));
             services.AddDbContext<ContactContext>(option =>
             {
                 var settings = services.BuildServiceProvider().GetService<IOptions<CosmosSettings>>().Value;

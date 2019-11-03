@@ -5,7 +5,7 @@ using Contacts.Core.Model;
 using Shouldly;
 using Xunit;
 
-namespace Integration
+namespace Integration.CosmosDb
 {
     public class CosmosRepositoryTests : IClassFixture<CosmosRepositoryFixture>
     {

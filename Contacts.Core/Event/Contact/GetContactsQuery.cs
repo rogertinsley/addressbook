@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Contacts.Core.Data;
 using Contacts.Core.Utilities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Contacts.Core.Event.Contact
 {
@@ -33,17 +33,9 @@ namespace Contacts.Core.Event.Contact
 
             public async Task<Result> Handle(Query request, CancellationToken cancellationToken)
             {
-                var contacts = _repository.GetAsQueryable();
-                var d = _repository.Count();
-                var contactList = await PaginatedList<Model.Contact>.CreateAsync(
-                    source: contacts, 
-                    pageIndex:request.PageNumber ?? 1, 
-                    pageSize:request.PageSize
-                );
-
                 return new Result
                 {
-                    Contacts = contactList
+                    Contacts = null
                 };
             }
         }
